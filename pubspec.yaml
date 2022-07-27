@@ -3,7 +3,7 @@ description: Flutter plugin to implement a Boom Menu, with icons, title, sub tit
 version: 1.0.0
 author:
   aimen sayoud <aymensayoud2019@gmail.com>
-homepage:
+homepage: https://github.com/AimenSayoud/flutter_boom_menu_new
 
 environment:
   sdk: ">=2.17.6 <3.0.0"

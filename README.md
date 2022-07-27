@@ -1,39 +1,79 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+# Flutter Boom Menu
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+The BoomMenu widget is built to be placed in the `Scaffold.floatingActionButton` argument, replacing the `FloatingActionButton` widget.
+It's not possible to set its position with the `Scaffold.floatingActionButtonLocation` argument, but it's possible to set right/bottom margin with the `marginRight` and `marginBottom` arguments (default to 16) to place the button anywhere in the screen.
+Using the `Scaffold.bottomNavigationBar` the floating button will be always placed above the bar, so the `BottomAppBar.hasNotch` should be always `false`.
+
+**Title**
+
+Every child button can have a `Icon`,`Title`, `SubTitle` which can be customized providing by yourself. If the `Title` parameter is not provided the title will be not rendered.
+
+The package will handle the animation by itself.
+
+![alt text](https://github.com/AimenSayoud/flutter_boom_menu_new/screenshot/boom-menu-video.gif)
+
+**Example Usage ( complete with all params ):**
 
 ```dart
-const like = 'sample';
+Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: BoomMenu(
+      animatedIcon: AnimatedIcons.menu_close,
+      animatedIconTheme: IconThemeData(size: 22.0),
+      //child: Icon(Icons.add),
+      onOpen: () => print('OPENING DIAL'),
+      onClose: () => print('DIAL CLOSED'),
+      scrollVisible: scrollVisible,
+      overlayColor: Colors.black,
+      overlayOpacity: 0.7,
+      children: [
+        MenuItem(
+          child: Icon(Icons.accessibility, color: Colors.black),
+          title: "Profiles",
+          titleColor: Colors.white,
+          subtitle: "You Can View the Noel Profile",
+          subTitleColor: Colors.white,
+          backgroundColor: Colors.deepOrange,
+          onTap: () => print('FIRST CHILD'),
+        ),
+        MenuItem(
+          child: Icon(Icons.brush, color: Colors.black),
+          title: "Profiles",
+          titleColor: Colors.white,
+          subtitle: "You Can View the Noel Profile",
+          subTitleColor: Colors.white,
+          backgroundColor: Colors.green,
+          onTap: () => print('SECOND CHILD'),
+        ),
+        MenuItem(
+          child: Icon(Icons.keyboard_voice, color: Colors.black),
+          title: "Profile",
+          titleColor: Colors.white,
+          subtitle: "You Can View the Noel Profile",
+          subTitleColor: Colors.white,
+          backgroundColor: Colors.blue,
+          onTap: () => print('THIRD CHILD'),
+        ),
+        MenuItem(
+          child: Icon(Icons.ac_unit, color: Colors.black),
+          title: "Profiles",
+          titleColor: Colors.white,
+          subtitle: "You Can View the Noel Profile",
+          subTitleColor: Colors.white,
+          backgroundColor: Colors.blue,
+          onTap: () => print('FOURTH CHILD'),
+        )
+      ],
+    ),
+    );
+}
 ```
+## Issues & Feedback
 
-## Additional information
+Please file an [issue](https://github.com/Mohanraj153/flutter_boom_menu/issues) to send feedback or report a bug. Thank you!
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Contributing
+
+Every pull request is welcome.
